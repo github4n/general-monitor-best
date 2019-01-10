@@ -144,29 +144,29 @@ class KithSpider(Spider):
     name = "KithSpider"
     allowded_domains = ["kith.com"]
     start_urls = [KithURL]
-	
+    
     def __init__(self):
         logging.critical("KithSpider STARTED.")
-		
+        
     def parse(self, response):
-		while True:
-			try:
-				products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
-				
-				for product in products:
-					item = KithItem()
-					item['name'] = product.xpath('div/div/a[1]/img/@alt').extract()[0]
-					item['link'] = "https://kith.com" + product.xpath('div/div/a[1]/@href').extract()[0]
-					# item['image'] = "https:" + product.xpath('div/div/a[1]/img/@src').extract()[0]
-					item['size'] = "https://kith.com/cart/add.js?id=" + product.xpath('div/div/a[2]/div/*/div[1]/@data-value').extract()[0] + "&quantity=1"
-					yield item
-					
-				yield Request(KithURL, callback=self.parse, dont_filter=True, priority=0)	
-			
-			except:
-				pass
-				
-				
+        while True:
+            try:
+                products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
+                
+                for product in products:
+                    item = KithItem()
+                    item['name'] = product.xpath('div/div/a[1]/img/@alt').extract()[0]
+                    item['link'] = "https://kith.com" + product.xpath('div/div/a[1]/@href').extract()[0]
+                    # item['image'] = "https:" + product.xpath('div/div/a[1]/img/@src').extract()[0]
+                    item['size'] = "https://kith.com/cart/add.js?id=" + product.xpath('div/div/a[2]/div/*/div[1]/@data-value').extract()[0] + "&quantity=1"
+                    yield item
+                    
+                yield Request(KithURL, callback=self.parse, dont_filter=True, priority=0)   
+            
+            except:
+                pass
+                
+                
 class RuvillaSpider(Spider):
     
     name = "RuvillaSpider"
@@ -188,8 +188,8 @@ class RuvillaSpider(Spider):
             yield item
             
         yield Request(RuvillaURL, callback=self.parse, dont_filter=True, priority=1)
-		
-		
+        
+        
 class FootShopSpider(Spider):
     
     name = "FootShopSpider"
@@ -211,8 +211,8 @@ class FootShopSpider(Spider):
             yield item
             
         yield Request(FootShopURL, callback=self.parse, dont_filter=True, priority=2)
-		
-		
+        
+        
 class AfewSpider(Spider):
     
     name = "AfewSpider"
@@ -234,8 +234,8 @@ class AfewSpider(Spider):
             yield item
             
         yield Request(AfewURL, callback=self.parse, dont_filter=True, priority=3)
-		
-		
+        
+        
 class CalirootsSpider(Spider):
     
     name = "CalirootsSpider"
@@ -257,8 +257,8 @@ class CalirootsSpider(Spider):
             yield item
             
         yield Request(CalirootsURL, callback=self.parse, dont_filter=True, priority=4)
-		
-		
+        
+        
 class EinhalbSpider(Spider):
     
     name = "EinhalbSpider"
@@ -280,8 +280,8 @@ class EinhalbSpider(Spider):
             yield item
             
         yield Request(EinhalbURL, callback=self.parse, dont_filter=True, priority=5)
-		
-		
+        
+        
 class EndSpider(Spider):
     
     name = "EndSpider"
@@ -303,8 +303,8 @@ class EndSpider(Spider):
             yield item
             
         yield Request(EndURL, callback=self.parse, dont_filter=True, priority=6)
-		
-		
+        
+        
 class SNSSpider(Spider):
     
     name = "SNSSpider"
@@ -326,8 +326,8 @@ class SNSSpider(Spider):
             yield item
             
         yield Request(SNSURL, callback=self.parse, dont_filter=True, priority=7)
-		
-		
+        
+        
 class TintSpider(Spider):
     
     name = "TintSpider"
@@ -349,8 +349,8 @@ class TintSpider(Spider):
             yield item
             
         yield Request(TintURL, callback=self.parse, dont_filter=True, priority=8)
-		
-		
+        
+        
 class OverkillSpider(Spider):
     
     name = "OverkillSpider"
@@ -372,8 +372,8 @@ class OverkillSpider(Spider):
             yield item
             
         yield Request(OverkillURL, callback=self.parse, dont_filter=True, priority=9)
-		
-		
+        
+        
 class FootDistrictSpider(Spider):
     
     name = "FootDistrictSpider"
@@ -395,8 +395,8 @@ class FootDistrictSpider(Spider):
             yield item
             
         yield Request(FootDistrictURL, callback=self.parse, dont_filter=True, priority=10)
-		
-		
+        
+        
 class SizeSpider(Spider):
     
     name = "SizeSpider"
@@ -418,8 +418,8 @@ class SizeSpider(Spider):
             yield item
             
         yield Request(SizeURL, callback=self.parse, dont_filter=True, priority=11)
-		
-		
+        
+        
 class YCMCSpider(Spider):
     
     name = "YCMCSpider"
@@ -441,8 +441,8 @@ class YCMCSpider(Spider):
             yield item
             
         yield Request(YCMCURL, callback=self.parse, dont_filter=True, priority=12)
-		
-		
+        
+        
 class CitySpider(Spider):
     
     name = "CitySpider"
@@ -464,8 +464,8 @@ class CitySpider(Spider):
             yield item
             
         yield Request(CityURL, callback=self.parse, dont_filter=True, priority=13)
-		
-		
+        
+        
 class FootLockerSpider(Spider):
     
     name = "FootLockerSpider"
@@ -487,8 +487,8 @@ class FootLockerSpider(Spider):
             yield item
             
         yield Request(FootLockerURL, callback=self.parse, dont_filter=True, priority=14)
-		
-		
+        
+        
 class FootActionSpider(Spider):
     
     name = "FootActionSpider"
@@ -510,8 +510,8 @@ class FootActionSpider(Spider):
             yield item
             
         yield Request(FootActionURL, callback=self.parse, dont_filter=True, priority=15)
-		
-		
+        
+        
 class ChampsSpider(Spider):
     
     name = "ChampsSpider"
@@ -533,8 +533,8 @@ class ChampsSpider(Spider):
             yield item
             
         yield Request(ChampsURL, callback=self.parse, dont_filter=True, priority=16)
-		
-		
+        
+        
 class EastBaySpider(Spider):
     
     name = "EastBaySpider"
@@ -556,8 +556,8 @@ class EastBaySpider(Spider):
             yield item
             
         yield Request(EastBayURL, callback=self.parse, dont_filter=True, priority=17)
-		
-		
+        
+        
 class FinishLineSpider(Spider):
     
     name = "FinishLineSpider"
@@ -579,8 +579,8 @@ class FinishLineSpider(Spider):
             yield item
             
         yield Request(FinishLineURL, callback=self.parse, dont_filter=True, priority=18)
-		
-		
+        
+        
 class AdidasUSSpider(Spider):
     
     name = "AdidasUSSpider"
@@ -602,8 +602,8 @@ class AdidasUSSpider(Spider):
             yield item
             
         yield Request(AdidasUSURL, callback=self.parse, dont_filter=True, priority=19)
-		
-		
+        
+        
 class AdidasEUSpider(Spider):
     
     name = "AdidasEUSpider"
@@ -625,8 +625,8 @@ class AdidasEUSpider(Spider):
             yield item
             
         yield Request(AdidasEUURL, callback=self.parse, dont_filter=True, priority=20)
-		
-		
+        
+        
 class NikeSpider(Spider):
     
     name = "NikeSpider"
@@ -648,8 +648,8 @@ class NikeSpider(Spider):
             yield item
             
         yield Request(NikeURL, callback=self.parse, dont_filter=True, priority=21)
-		
-		
+        
+        
 class NordstromSpider(Spider):
     
     name = "NordstromSpider"
@@ -671,8 +671,8 @@ class NordstromSpider(Spider):
             yield item
             
         yield Request(NordstromURL, callback=self.parse, dont_filter=True, priority=22)
-		
-		
+        
+        
 class BarneysSpider(Spider):
     
     name = "BarneysSpider"
@@ -694,8 +694,8 @@ class BarneysSpider(Spider):
             yield item
             
         yield Request(BarneysURL, callback=self.parse, dont_filter=True, priority=23)
-		
-		
+        
+        
 class JimmyJazzSpider(Spider):
     
     name = "JimmyJazzSpider"
@@ -717,8 +717,8 @@ class JimmyJazzSpider(Spider):
             yield item
             
         yield Request(JimmyJazzURL, callback=self.parse, dont_filter=True, priority=24)
-		
-		
+        
+        
 class JDSportsSpider(Spider):
     
     name = "JDSportsSpider"
@@ -740,8 +740,8 @@ class JDSportsSpider(Spider):
             yield item
             
         yield Request(JDSportsURL, callback=self.parse, dont_filter=True, priority=25)
-		
-		
+        
+        
 class FootPatrolSpider(Spider):
     
     name = "FootPatrolSpider"
@@ -763,8 +763,8 @@ class FootPatrolSpider(Spider):
             yield item
 
         yield Request(FootPatrolURL, callback=self.parse, dont_filter=True, priority=26)
-		
-		
+        
+        
 class SneakerPoliticsSpider(Spider):
     
     name = "SneakerPoliticsSpider"
@@ -786,8 +786,8 @@ class SneakerPoliticsSpider(Spider):
             yield item
             
         yield Request(SneakerPoliticsURL, callback=self.parse, dont_filter=True, priority=27)
-		
-		
+        
+        
 class UrbanIndustrySpider(Spider):
     
     name = "UrbanIndustrySpider"
@@ -809,8 +809,8 @@ class UrbanIndustrySpider(Spider):
             yield item
             
         yield Request(UrbanIndustryURL, callback=self.parse, dont_filter=True, priority=28)
-		
-		
+        
+        
 class SneakerBaasSpider(Spider):
     
     name = "SneakerBaasSpider"
@@ -832,8 +832,8 @@ class SneakerBaasSpider(Spider):
             yield item
             
         yield Request(SneakerBaasURL, callback=self.parse, dont_filter=True, priority=29)
-		
-		
+        
+        
 class UrbanOutfittersSpider(Spider):
     
     name = "UrbanOutfittersSpider"
@@ -855,8 +855,8 @@ class UrbanOutfittersSpider(Spider):
             yield item
             
         yield Request(UrbanOutfittersURL, callback=self.parse, dont_filter=True, priority=30)
-		
-		
+        
+        
 class LuisaSpider(Spider):
     
     name = "LuisaSpider"
@@ -878,8 +878,8 @@ class LuisaSpider(Spider):
             yield item
             
         yield Request(LuisaURL, callback=self.parse, dont_filter=True, priority=31)
-		
-		
+        
+        
 class SlamJamSpider(Spider):
     
     name = "SlamJamSpider"
@@ -902,20 +902,20 @@ class SlamJamSpider(Spider):
             yield item
             
         yield Request(SlamJamURL, callback=self.parse, dont_filter=True, priority=32)
-		
-		
+        
+        
 class Rise45Spider(Spider):
 
     name = "Rise45Spider"
     allowded_domains = ["rise45.com"]
     start_urls = [Rise45URL]
-	
+    
     def __init__(self):
         logging.critical("Rise45Spider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@id="content"]//div[@class="collection-matrix"]//div[contains(@class,"col")]/div')
-		
+        
         for product in products:
             item = Rise45Item()
             item['name'] = product.xpath('a[2]/h4/text()').extract()[0]
@@ -923,10 +923,10 @@ class Rise45Spider(Spider):
             # item['image'] = "https:" + product.xpath('a[1]/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(Rise45URL, callback=self.parse, dont_filter=True, priority=33)
-		
-		
+        
+        
 class UndefeatedSpider(Spider):
     
     name = "UndefeatedSpider"
@@ -938,7 +938,7 @@ class UndefeatedSpider(Spider):
         
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="collection-listing cf"]//div[@class="product-list"]//div[contains(@class,"product-block")]')
-		
+        
         for product in products:
             item = UndefeatedItem()
             item['name'] = product.xpath('.//a/div[1]/div/div/text()').extract()[0]
@@ -948,8 +948,8 @@ class UndefeatedSpider(Spider):
             yield item
             
         yield Request(UndefeatedURL, callback=self.parse, dont_filter=True, priority=34)
-		
-		
+        
+        
 class ZapposSpider(Spider):
     
     name = "ZapposSpider"
@@ -971,8 +971,8 @@ class ZapposSpider(Spider):
             yield item
             
         yield Request(ZapposURL, callback=self.parse, dont_filter=True, priority=35)
-		
-		
+        
+        
 class PointzSpider(Spider):
     
     name = "PointzSpider"
@@ -994,8 +994,8 @@ class PointzSpider(Spider):
             yield item
             
         yield Request(PointzURL, callback=self.parse, dont_filter=True, priority=36)
-		
-		
+        
+        
 class StickABushSpider(Spider):
     
     name = "StickABushSpider"
@@ -1004,10 +1004,10 @@ class StickABushSpider(Spider):
     
     def __init__(self):
         logging.critical("StickABushSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="row product-list grid-mode"]//div[contains(@class,"item")]/div')
-		
+        
         for product in products:
             item = StickABushItem()
             item['name'] = product.xpath('a/div/p/text()').extract()[0]
@@ -1017,8 +1017,8 @@ class StickABushSpider(Spider):
             yield item
             
         yield Request(StickABushURL, callback=self.parse, dont_filter=True, priority=37)
-		
-		
+        
+        
 class ShoesPalaceSpider(Spider):
 
     name = "ShoesPalaceSpider"
@@ -1027,10 +1027,10 @@ class ShoesPalaceSpider(Spider):
     
     def __init__(self):
         logging.critical("ShoesPalaceSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="zero center expandable"]//div[contains(@class,"block")]')
-		
+        
         for product in products:
             item = ShoesPalaceItem()
             item['name'] = product.xpath('.//div[2]/text()').extract()[0]
@@ -1038,10 +1038,10 @@ class ShoesPalaceSpider(Spider):
             # item['image'] = "http://www.shoepalace.com" + product.xpath('.//a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(ShoesPalaceURL, callback=self.parse, dont_filter=True, priority=38)
-		
-		
+        
+        
 class KongSpider(Spider):
     
     name = "KongSpider"
@@ -1063,8 +1063,8 @@ class KongSpider(Spider):
             yield item
 
         yield Request(KongURL, callback=self.parse, dont_filter=True, priority=39)
-		
-		
+        
+        
 class SaveOurSoleSpider(Spider):
     
     name = "SaveOurSoleSpider"
@@ -1086,20 +1086,20 @@ class SaveOurSoleSpider(Spider):
             yield item
             
         yield Request(SaveOurSoleURL, callback=self.parse, dont_filter=True, priority=40)
-		
-		
+        
+        
 class InflammableSpider(Spider):
 
     name = "InflammableSpider"
     allowded_domains = ["inflammable.com"]
     start_urls = [InflammableURL]
-	
+    
     def __init__(self):
         logging.critical("InflammableSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="span10 sidebar-products row"]//div[contains(@class,"span25")]')
-		
+        
         for product in products:
             item = InflammableItem()
             item['name'] = product.xpath('div[1]/div[1]/a/img/@title').extract()[0]
@@ -1107,19 +1107,19 @@ class InflammableSpider(Spider):
             # item['image'] = "http://www.inflammable.com/" + product.xpath('div[1]/div[1]/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(InflammableURL, callback=self.parse, dont_filter=True, priority=41)
-		
-		
+        
+        
 class DefShopSpider(Spider):
 
     name = "DefShopSpider"
     allowded_domains = ["def-shop.com"]
     start_urls = [DefShopURL]
-	
+    
     def __init__(self):
         logging.critical("DefShopSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="row def-v-offset3"]//div[contains(@class,"def-col-listing")]//article[@class="prod-article"]//div[@class="bx-wrapper"]')
         
@@ -1130,22 +1130,22 @@ class DefShopSpider(Spider):
             # item['image'] = product.xpath('a/div/img/@content').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(DefShopURL, callback=self.parse, dont_filter=True, priority=42)
-		
-		
+        
+        
 class OffspringSpider(Spider):
     
     name = "OffspringSpider"
     allowded_domains = ["offspring.co.uk"]
     start_urls = [OffspringURL]
-	
+    
     def __init__(self):
         logging.critical("OffspringSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="productList row"]//ul//li[contains(@class,"col-xs-6")]//div[@class="productList_item"]')
-		
+        
         for product in products:
             item = OffSpringItem()
             item['name'] = product.xpath('div[2]/div[1]/a//text()[3]').extract()[0].strip()
@@ -1153,22 +1153,22 @@ class OffspringSpider(Spider):
             # item['image'] = product.xpath('div[1]/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(OffspringURL, callback=self.parse, dont_filter=True, priority=43)
-		
-		
+        
+        
 class SoleKitchenSpider(Spider):
 
     name = "SoleKitchenSpider"
     allowded_domains = ["solekitchen.de"]
     start_urls = [SoleKitchenURL]
-	
+    
     def __init__(self):
         logging.critical("SoleKitchenSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="listing--container"]//div[@class="listing"]//div[contains(@class,"product--box")]//div[@class="box--content slktn"]')
-		
+        
         for product in products:
             item = SoleKitchenItem()
             item['name'] = product.xpath('div/a/@title').extract()[0]
@@ -1176,10 +1176,10 @@ class SoleKitchenSpider(Spider):
             # tem['image'] = product.xpath('div/span/div/div/div/a[2]/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(SoleKitchenURL, callback=self.parse, dont_filter=True, priority=44)
-		
-		
+        
+        
 class DromeSpider(Spider):
     
     name = "DromeSpider"
@@ -1201,20 +1201,20 @@ class DromeSpider(Spider):
             yield item
             
         yield Request(DromeURL, callback=self.parse, dont_filter=True, priority=45)
-		
-		
+        
+        
 class FootAsylumSpider(Spider):
 
     name = "FootAsylumSpider"
     allowded_domains = ["footasylum.com"]
     start_urls = [FootAsylumURL]
-	
+    
     def __init__(self):
         logging.critical("FootAsylumSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="productDataOnPage_inner"]//ul[@class="main-list row"]//li[contains(@class,"left")]')
-		
+        
         for product in products:
             item = FootAsylumItem()
             item['name'] = product.xpath('div/span[2]/img/@alt').extract()[0]
@@ -1222,10 +1222,10 @@ class FootAsylumSpider(Spider):
             # item['image'] = "https://www.footasylum.com" + product.xpath('div/span[2]/img/@data-original').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(FootAsylumURL, callback=self.parse, dont_filter=True, priority=46)
-		
-		
+        
+        
 class ConceptsSpider(Spider):
     
     name = "ConceptsSpider"
@@ -1247,8 +1247,8 @@ class ConceptsSpider(Spider):
             yield item
             
         yield Request(ConceptsURL, callback=self.parse, dont_filter=True, priority=47)
-		
-		
+        
+        
 class SocialStatusSpider(Spider):
     
     name = "SocialStatusSpider"
@@ -1260,7 +1260,7 @@ class SocialStatusSpider(Spider):
         
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="desktop-12 tablet-6 mobile-3"]//div[contains(@class,"product-index")]//div[@class="product-index-inner"]')
-		
+        
         for product in products:
             item = SocialStatusItem()
             item['name'] = product.xpath('a/@title').extract()[0]
@@ -1270,20 +1270,20 @@ class SocialStatusSpider(Spider):
             yield item
             
         yield Request(SocialStatusURL, callback=self.parse, dont_filter=True, priority=48)
-		
-		
+        
+        
 class ExtraButterSpider(Spider):
 
     name = "ExtraButterSpider"
     allowded_domains = ["extrabutterny.com"]
     start_urls = [ExtraButterURL]
-	
+    
     def __init__(self):
         logging.critical("ExtraButterSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="row"]//div[contains(@class,"col-xs-12")]//div[@class="product-thumbnail"]')
-		
+        
         for product in products:
             item = ExtraButterItem()
             item['name'] = product.xpath('div/article/div[2]/h3/a/@data-full-title').extract()[0]
@@ -1291,10 +1291,10 @@ class ExtraButterSpider(Spider):
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(ExtraButterURL, callback=self.parse, dont_filter=True, priority=49)
-		
-		
+        
+        
 class BodegaSpider(Spider):
     
     name = "BodegaSpider"
@@ -1303,10 +1303,10 @@ class BodegaSpider(Spider):
     
     def __init__(self):
         logging.critical("BodegaSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[contains(@class,"clear-xs-only clear-sm-only col-md-9")]//ul//li[contains(@class,"product-item")]')
-		
+        
         for product in products:
             item = BodegaItem()
             item['name'] = product.xpath('div/div/h3/a/text()').extract()[0].strip()
@@ -1314,10 +1314,10 @@ class BodegaSpider(Spider):
             # item['image'] = "https:" + product.xpath('div/a/div[1]/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(BodegaURL, callback=self.parse, dont_filter=True, priority=50)
-		
-		
+        
+        
 class SaintAlfredSpider(Spider):
     
     name = "SaintAlfredSpider"
@@ -1329,7 +1329,7 @@ class SaintAlfredSpider(Spider):
         
     def parse(self, response):
         products = Selector(response).xpath('//div[contains(@class,"collection-products")]//div[contains(@class,"product-list-item")]//figure[@class="product-list-item-thumbnail"]')
-		
+        
         for product in products:
             item = SaintAlfredItem()
             item['name'] = product.xpath('a/img/@alt').extract()[0]
@@ -1338,9 +1338,9 @@ class SaintAlfredSpider(Spider):
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
-        yield Request(SaintAlfredURL, callback=self.parse, dont_filter=True, priority=51)	
-		
-		
+        yield Request(SaintAlfredURL, callback=self.parse, dont_filter=True, priority=51)   
+        
+        
 class LapstoneNHammerSpider(Spider):
     
     name = "LapstoneNHammerSpider"
@@ -1362,8 +1362,8 @@ class LapstoneNHammerSpider(Spider):
             yield item
             
         yield Request(LapstoneNHammerURL, callback=self.parse, dont_filter=True, priority=52)
-		
-		
+        
+        
 class ShelfLifeSpider(Spider):
     
     name = "ShelfLifeSpider"
@@ -1375,7 +1375,7 @@ class ShelfLifeSpider(Spider):
 
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="row push_both push_top push_bottom light_row"]//div[contains(@class,"col-xs-6")]')
-		
+        
         for product in products:
             item = ShelfLifeItem()
             item['name'] = product.xpath('.//a/div/img/@alt').extract()[0]
@@ -1385,8 +1385,8 @@ class ShelfLifeSpider(Spider):
             yield item
 
         yield Request(ShelfLifeURL, callback=self.parse, dont_filter=True, priority=53)
-		
-		
+        
+        
 class AsphaltGoldSpider(Spider):
     
     name = "AsphaltGoldSpider"
@@ -1408,8 +1408,8 @@ class AsphaltGoldSpider(Spider):
             yield item
             
         yield Request(AsphaltGoldURL, callback=self.parse, dont_filter=True, priority=54)
-		
-		
+        
+        
 class HanonSpider(Spider):
     
     name = "HanonSpider"
@@ -1431,8 +1431,8 @@ class HanonSpider(Spider):
             yield item
             
         yield Request(HanonURL, callback=self.parse, dont_filter=True, priority=55)
-		
-		
+        
+        
 class SoleBoxSpider(Spider):
     
     name = "SoleBoxSpider"
@@ -1444,7 +1444,7 @@ class SoleBoxSpider(Spider):
         
     def parse(self, response):
         products = Selector(response).xpath('//ul[@class="gridView clear"]//li[contains(@class,"productData")]')
-		
+        
         for product in products:
             item = SoleBoxItem()
             item['name'] = product.xpath('a/@title').extract()[0].strip()
@@ -1455,8 +1455,8 @@ class SoleBoxSpider(Spider):
             yield item
 
         yield Request(SoleBoxURL, callback=self.parse, dont_filter=True, priority=56)
-		
-		
+        
+        
 class ConsortiumSpider(Spider):
     
     name = "ConsortiumSpider"
@@ -1468,7 +1468,7 @@ class ConsortiumSpider(Spider):
 
     def parse(self, response):
         products = Selector(response).xpath('//li[@class="item text-center"]')
-		
+        
         for product in products:
             item = ConsortiumItem()
             item['name'] = product.xpath('div/h2/a/@title').extract()[0]
@@ -1478,8 +1478,8 @@ class ConsortiumSpider(Spider):
             yield item
             
         yield Request(ConsortiumURL, callback=self.parse, dont_filter=True, priority=57)
-		
-		
+        
+        
 class HavenSpider(Spider):
     
     name = "HavenSpider"
@@ -1501,8 +1501,8 @@ class HavenSpider(Spider):
             yield item
 
         yield Request(HavenURL, callback=self.parse, dont_filter=True, priority=58)
-		
-		
+        
+        
 class NeedSupplySpider(Spider):
     
     name = "NeedSupplySpider"
@@ -1524,8 +1524,8 @@ class NeedSupplySpider(Spider):
             yield item
 
         yield Request(NeedSupplyURL, callback=self.parse, dont_filter=True, priority=59)
-		
-		
+        
+        
 class LoadedSpider(Spider):
     
     name = "LoadedSpider"
@@ -1547,8 +1547,8 @@ class LoadedSpider(Spider):
             yield item
 
         yield Request(LoadedURL, callback=self.parse, dont_filter=True, priority=60)
-		
-		
+        
+        
 class WellGoshSpider(Spider):
     
     name = "WellGoshSpider"
@@ -1570,8 +1570,8 @@ class WellGoshSpider(Spider):
             yield item
 
         yield Request(WellGoshURL, callback=self.parse, dont_filter=True, priority=61)
-		
-		
+        
+        
 class CapsuleSpider(Spider):
     
     name = "CapsuleSpider"
@@ -1583,7 +1583,7 @@ class CapsuleSpider(Spider):
         
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="product-list"]//div[contains(@class,"product-block")]//div[@class="block-inner"]//div[@class="image-cont"]')
-		
+        
         for product in products:
             item = CapsuleItem()
             item['name'] = product.xpath('a[1]/div/img/@alt').extract()[0]
@@ -1593,20 +1593,20 @@ class CapsuleSpider(Spider):
             yield item
             
         yield Request(CapsuleURL, callback=self.parse, dont_filter=True, priority=62)
-		
-		
+        
+        
 class YMESpider(Spider):
 
     name = "YMESpider"
     allowded_domains = ["ymeuniverse.com"]
     start_urls = [YMEURL]
-	
+    
     def __init__(self):
         logging.critical("YMESpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="category-products"]//ul[contains(@class,"small-block-grid-2")]//li[@class="item"]//div[@class="item-wrapper"]')
-		
+        
         for product in products:
             item = YMEItem()
             item['name'] = product.xpath('a/@title').extract()[0]
@@ -1614,10 +1614,10 @@ class YMESpider(Spider):
             # item['image'] = product.xpath('a/span/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(YMEURL, callback=self.parse, dont_filter=True, priority=63)
-		
-		
+        
+        
 class HypeDCSpider(Spider):
     
     name = "HypeDCSpider"
@@ -1639,17 +1639,17 @@ class HypeDCSpider(Spider):
             yield item
 
         yield Request(HypeDCURL, callback=self.parse, dont_filter=True, priority=64)
-		
-		
+        
+        
 class BSTNSpider(Spider):
     
     name = "BSTNSpider"
     allowded_domains = ["bstnstore.com"]
     start_urls = [BSTNURL]
-	
+    
     def __init__(self):
         logging.critical("BSTNSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//ul[@class="block-grid four-up mobile-two-up productlist"]//li[contains(@class,"item")]//div[@class="itemWrapper pOverlay"]//div[@class="pImageContainer"]//a[@class="plink image"]')
 
@@ -1660,22 +1660,22 @@ class BSTNSpider(Spider):
             # item['image'] = "https://www.bstnstore.com" + product.xpath('div/div[2]/@data-src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
-	yield Request(BSTNURL, callback=self.parse, dont_filter=True, priority=65)
-	
-	
+            
+    yield Request(BSTNURL, callback=self.parse, dont_filter=True, priority=65)
+    
+    
 class TrophyRoomSpider(Spider):
     
     name = "TrophyRoomSpider"
     allowded_domains = ["trophyroomstore.com"]
     start_urls = [TrophyRoomURL]
-	
+    
     def __init__(self):
         logging.critical("TrophyRoomSpider STARTED.")
-		
+        
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="grid-uniform"]//div[contains(@class,"grid__item")]//div[@class="product-card"]')
-		
+        
         for product in products:
             item = TrophyRoomItem()
             item['name'] = product.xpath('a/img/@alt').extract()[0]
@@ -1683,10 +1683,10 @@ class TrophyRoomSpider(Spider):
             # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(TrophyRoomURL, callback=self.parse, dont_filter=True, priority=66)
-		
-		
+        
+        
 class OfficeSpider(Spider):
     
     name = "OfficeSpider"
@@ -1708,8 +1708,8 @@ class OfficeSpider(Spider):
             yield item
 
         yield Request(OfficeURL, callback=self.parse, dont_filter=True, priority=67)
-		
-		
+        
+        
 class ALLikeSpider(Spider):
     
     name = "ALLikeSpider"
@@ -1731,8 +1731,8 @@ class ALLikeSpider(Spider):
             yield item
 
         yield Request(ALLikeURL, callback=self.parse, dont_filter=True, priority=68)
-		
-		
+        
+        
 class UrbanJungleSpider(Spider):
     
     name = "UrbanJungleSpider"
@@ -1755,8 +1755,8 @@ class UrbanJungleSpider(Spider):
             yield item
             
         yield Request(UrbanJungleURL, callback=self.parse, dont_filter=True, priority=69)
-		
-		
+        
+        
 class SSenseSpider(Spider):
     
     name = "SSenseSpider"
@@ -1778,8 +1778,8 @@ class SSenseSpider(Spider):
             yield item
 
         yield Request(SSenseURL, callback=self.parse, dont_filter=True, priority=70)
-		
-		
+        
+        
 class BackDoorSpider(Spider):
     
     name = "BackDoorSpider"
@@ -1801,8 +1801,8 @@ class BackDoorSpider(Spider):
             yield item
 
         yield Request(BackDoorURL, callback=self.parse, dont_filter=True, priority=71)
-		
-		
+        
+        
 class BasketSpider(Spider):
     
     name = "BasketSpider"
@@ -1824,8 +1824,8 @@ class BasketSpider(Spider):
             yield item
 
         yield Request(BasketURL, callback=self.parse, dont_filter=True, priority=72)
-		
-		
+        
+        
 class DopeFactorySpider(Spider):
     
     name = "DopeFactorySpider"
@@ -1847,8 +1847,8 @@ class DopeFactorySpider(Spider):
             yield item
 
         yield Request(DopeFactoryURL, callback=self.parse, dont_filter=True, priority=73)
-		
-		
+        
+        
 class NextDoorSpider(Spider):
     
     name = "NextDoorSpider"
@@ -1870,8 +1870,8 @@ class NextDoorSpider(Spider):
             yield item
 
         yield Request(NextDoorURL, callback=self.parse, dont_filter=True, priority=74)
-		
-		
+        
+        
 class SummerSpider(Spider):
     
     name = "SummerSpider"
@@ -1893,8 +1893,8 @@ class SummerSpider(Spider):
             yield item
 
         yield Request(SummerURL, callback=self.parse, dont_filter=True, priority=75)
-		
-		
+        
+        
 class MrPorterSpider(Spider):
     
     name = "MrPorterSpider"
@@ -1916,8 +1916,8 @@ class MrPorterSpider(Spider):
             yield item
 
         yield Request(MrPorterURL, callback=self.parse, dont_filter=True, priority=76)
-		
-		
+        
+        
 class StormFashionSpider(Spider):
     
     name = "StormFashionSpider"
@@ -1939,8 +1939,8 @@ class StormFashionSpider(Spider):
             yield item
 
         yield Request(StormFashionURL, callback=self.parse, dont_filter=True, priority=77)
-		
-		
+        
+        
 class TresBienSpider(Spider):
     
     name = "TresBienSpider"
@@ -1962,8 +1962,8 @@ class TresBienSpider(Spider):
             yield item
 
         yield Request(TresBienURL, callback=self.parse, dont_filter=True, priority=78)
-		
-		
+        
+        
 class PackerSpider(Spider):
     
     name = "PackerSpider"
@@ -1985,8 +1985,8 @@ class PackerSpider(Spider):
             yield item
 
         yield Request(PackerURL, callback=self.parse, dont_filter=True, priority=79)
-		
-		
+        
+        
 class ShoesAddictorSpider(Spider):
     
     name = "ShoesAddictorSpider"
@@ -2008,8 +2008,8 @@ class ShoesAddictorSpider(Spider):
             yield item
 
         yield Request(ShoesAddictorURL, callback=self.parse, dont_filter=True, priority=80)
-		
-		
+        
+        
 class AddictSpider(Spider):
     
     name = "AddictSpider"
@@ -2031,8 +2031,8 @@ class AddictSpider(Spider):
             yield item
 
         yield Request(AddictURL, callback=self.parse, dont_filter=True, priority=81)
-		
-		
+        
+        
 class AphroditeSpider(Spider):
     
     name = "AphroditeSpider"
@@ -2054,8 +2054,8 @@ class AphroditeSpider(Spider):
             yield item
 
         yield Request(AphroditeURL, callback=self.parse, dont_filter=True, priority=82)
-		
-		
+        
+        
 class BaitSpider(Spider):
     
     name = "BaitSpider"
@@ -2077,8 +2077,8 @@ class BaitSpider(Spider):
             yield item
 
         yield Request(BaitURL, callback=self.parse, dont_filter=True, priority=83)
-		
-		
+        
+        
 class BlendsSpider(Spider):
     
     name = "BlendsSpider"
@@ -2100,8 +2100,8 @@ class BlendsSpider(Spider):
             yield item
 
         yield Request(BlendsURL, callback=self.parse, dont_filter=True, priority=84)
-		
-		
+        
+        
 class NiceKicksSpider(Spider):
     
     name = "NiceKicksSpider"
@@ -2123,8 +2123,8 @@ class NiceKicksSpider(Spider):
             yield item
 
         yield Request(NiceKicksURL, callback=self.parse, dont_filter=True, priority=85)
-		
-		
+        
+        
 class FeatureSpider(Spider):
     
     name = "FeatureSpider"
@@ -2146,8 +2146,8 @@ class FeatureSpider(Spider):
             yield item
 
         yield Request(FeatureURL, callback=self.parse, dont_filter=True, priority=86)
-		
-		
+        
+        
 class HypeBeastSpider(Spider):
     
     name = "HypeBeastSpider"
@@ -2169,8 +2169,8 @@ class HypeBeastSpider(Spider):
             yield item
 
         yield Request(HypeBeastURL, callback=self.parse, dont_filter=True, priority=87)
-		
-		
+        
+        
 class DeadStockSpider(Spider):
     
     name = "DeadStockSpider"
@@ -2192,8 +2192,8 @@ class DeadStockSpider(Spider):
             yield item
 
         yield Request(DeadStockURL, callback=self.parse, dont_filter=True, priority=88)
-		
-		
+        
+        
 class NotreSpider(Spider):
     
     name = "NotreSpider"
@@ -2215,8 +2215,8 @@ class NotreSpider(Spider):
             yield item
 
         yield Request(NotreURL, callback=self.parse, dont_filter=True, priority=89)
-		
-		
+        
+        
 class NrmlSpider(Spider):
     
     name = "NrmlSpider"
@@ -2238,8 +2238,8 @@ class NrmlSpider(Spider):
             yield item
 
         yield Request(NrmlURL, callback=self.parse, dont_filter=True, priority=90)
-		
-		
+        
+        
 class OnenessSpider(Spider):
     
     name = "OnenessSpider"
@@ -2259,10 +2259,10 @@ class OnenessSpider(Spider):
             # item['image'] = "https:" + product.xpath('div/a/div/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(OnenessURL, callback=self.parse, dont_filter=True, priority=91)
-		
-		
+        
+        
 class PufferRedsSpider(Spider):
     
     name = "PufferRedsSpider"
@@ -2284,8 +2284,8 @@ class PufferRedsSpider(Spider):
             yield item
 
         yield Request(PufferRedsURL, callback=self.parse, dont_filter=True, priority=92)
-		
-		
+        
+        
 class RenartsSpider(Spider):
     
     name = "RenartsSpider"
@@ -2307,8 +2307,8 @@ class RenartsSpider(Spider):
             yield item
 
         yield Request(RenartsURL, callback=self.parse, dont_filter=True, priority=93)
-		
-		
+        
+        
 class ProperSpider(Spider):
     
     name = "ProperSpider"
@@ -2330,8 +2330,8 @@ class ProperSpider(Spider):
             yield item
 
         yield Request(ProperURL, callback=self.parse, dont_filter=True, priority=94)
-		
-		
+        
+        
 class SoleStopSpider(Spider):
     
     name = "SoleStopSpider"
@@ -2353,8 +2353,8 @@ class SoleStopSpider(Spider):
             yield item
 
         yield Request(SoleStopURL, callback=self.parse, dont_filter=True, priority=95)
-		
-		
+        
+        
 class TitoloSpider(Spider):
     
     name = "TitoloSpider"
@@ -2376,8 +2376,8 @@ class TitoloSpider(Spider):
             yield item
             
         yield Request(TitoloURL, callback=self.parse, dont_filter=True, priority=96)
-		
-		
+        
+        
 class UptownSpider(Spider):
     
     name = "UptownSpider"
@@ -2399,8 +2399,8 @@ class UptownSpider(Spider):
             yield item
 
         yield Request(UptownURL, callback=self.parse, dont_filter=True, priority=97)
-		
-		
+        
+        
 class WestNYCSpider(Spider):
     
     name = "WestNYCSpider"
@@ -2422,8 +2422,8 @@ class WestNYCSpider(Spider):
             yield item
 
         yield Request(WestNYCURL, callback=self.parse, dont_filter=True, priority=98)
-		
-		
+        
+        
 class XileClothingSpider(Spider):
     
     name = "XileClothingSpider"
@@ -2445,8 +2445,8 @@ class XileClothingSpider(Spider):
             yield item
 
         yield Request(XileClothingURL, callback=self.parse, dont_filter=True, priority=99)
-		
-		
+        
+        
 class SoleflySpider(Spider):
     
     name = "SoleflySpider"
@@ -2468,8 +2468,8 @@ class SoleflySpider(Spider):
             yield item
 
         yield Request(SoleflyURL, callback=self.parse, dont_filter=True, priority=100)
-		
-		
+        
+        
 class SVDSpider(Spider):
     
     name = "SVDSpider"
@@ -2491,8 +2491,8 @@ class SVDSpider(Spider):
             yield item
 
         yield Request(SVDURL, callback=self.parse, dont_filter=True, priority=101)
-		
-		
+        
+        
 class DSMNYSpider(Spider):
     
     name = "DSMNYSpider"
@@ -2512,8 +2512,8 @@ class DSMNYSpider(Spider):
             yield item
             
         yield Request(DSMNYURL, callback=self.parse, dont_filter=True, priority=102)
-		
-		
+        
+        
 class HubbastilleSpider(Spider):
     
     name = "HubbastilleSpider"
@@ -2525,17 +2525,17 @@ class HubbastilleSpider(Spider):
         
     def parse(self, response):
         products = Selector(response).xpath('//div[@class="mix cs-item"]')
-		
+        
         for product in products:
             item = HubbastilleItem()
             item['name'] = product.xpath('section/div/div/a/img[1]/@title').extract()[0]
             item['link'] = product.xpath('section/div/div/a/@href').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
-			
+            
         yield Request(HubbastilleURL, callback=self.parse, dont_filter=True, priority=103)
-		
-		
+        
+        
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -2641,11 +2641,11 @@ process.crawl(HubbastilleSpider)
 
 # process.crawl(ShoesAddictorSpider)
 # process.crawl(DSMNYSpider)
-# process.crawl(EndSpider)		#Captcha if crawl too much.
-# process.crawl(SNSSpider)		#ASN blocked on Vultr via CloudFlare.
-# process.crawl(FinishLineSpider)	#Banned on Vultr.
-# process.crawl(BarneysSpider)		#Ban if crawl too much.
-# process.crawl(JimmyJazzSpider)	#ASN blocked on Vultr via CloudFlare.
+# process.crawl(EndSpider)      #Captcha if crawl too much.
+# process.crawl(SNSSpider)      #ASN blocked on Vultr via CloudFlare.
+# process.crawl(FinishLineSpider)   #Banned on Vultr.
+# process.crawl(BarneysSpider)      #Ban if crawl too much.
+# process.crawl(JimmyJazzSpider)    #ASN blocked on Vultr via CloudFlare.
 # process.crawl(ShoesPalaceSpider)      #Need to disobey robots.txt, if you want to crawl.
 
 process.start()
