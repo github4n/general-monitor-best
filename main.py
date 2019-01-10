@@ -149,7 +149,7 @@ class KithSpider(Spider):
         logging.critical("KithSpider STARTED.")
 		
     def parse(self, response):
-		while True:
+        while True:
 			try:
 				products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
 				
