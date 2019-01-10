@@ -150,7 +150,7 @@ class KithSpider(Spider):
 		
     def parse(self, response):
         while True:
-			try:
+                            try:
 				products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
 				
 				for product in products:
