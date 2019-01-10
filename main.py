@@ -1661,7 +1661,7 @@ class BSTNSpider(Spider):
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
-    yield Request(BSTNURL, callback=self.parse, dont_filter=True, priority=65)
+        yield Request(BSTNURL, callback=self.parse, dont_filter=True, priority=65)
     
     
 class TrophyRoomSpider(Spider):
