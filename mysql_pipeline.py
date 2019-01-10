@@ -520,7 +520,4 @@ class MYSQL_Pipeline(object):
           # WebHook for Slack. Comment/Uncomment the line below to enable/disable.
           # requests.post('SLACK WEBHOOK URL', json={'text': "*" + item['name'] + "*" + "\n" + item['link'] + "\n" + "\n" + "[ATC]: " + item['size'] + "\n" + "------------" + "\n"}, headers={'Content-Type': 'application/json'})
           
-    except MySQLdb.Error, e:
-      # print (Fore.RED + "MYSQL ERROR %d: %s" % (e.args[0], e.args[1] + Style.RESET_ALL))
-      
       return item
