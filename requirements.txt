@@ -1,4 +1,4 @@
-git+https://github.com/donnemartin/gitsome.git
+wheel
 requests
 crayons
 datetime
