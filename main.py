@@ -151,10 +151,10 @@ class KithSpider(Spider):
     def parse(self, response):
         while True:
                             try:
-				products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
+				    products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
 				
-				for product in products:
-					item = KithItem()
+				    for product in products:
+			                item = KithItem()
 					item['name'] = product.xpath('div/div/a[1]/img/@alt').extract()[0]
 					item['link'] = "https://kith.com" + product.xpath('div/div/a[1]/@href').extract()[0]
 					# item['image'] = "https:" + product.xpath('div/div/a[1]/img/@src').extract()[0]
@@ -163,7 +163,7 @@ class KithSpider(Spider):
 					
 				yield Request(KithURL, callback=self.parse, dont_filter=True, priority=0)	
 			
-			except:
+                            except:
 				pass
 				
 				
